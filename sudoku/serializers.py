@@ -2,8 +2,10 @@ from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
 from .models.user import User
+from .models.game import Game
 
 class UserSerializer(serializers.ModelSerializer):
+    games = GameSerializer(many=True)
     class Meta:
         model = get_user_model()
         fields = ('id', 'email', 'password')
@@ -20,3 +22,8 @@ class ChangePasswordSerializer(serializers.Serializer):
     model = User
     old = serializers.CharField(required=True)
     new = serializers.CharField(required=True)
+
+class GameSerializer(serializers.Serializer):
+    class Meta:
+      model = Game
+      fields = '__all__'
