@@ -1,6 +1,6 @@
 from django.urls import path
 from .views.user_views import SignUp, SignIn, SignOut, ChangePassword
-from .views.game_views import Games
+from .views.game_views import GameIndex, GameCreate
 
 urlpatterns = [
 	# Restful routing
@@ -9,6 +9,6 @@ urlpatterns = [
     path('sign-out/', SignOut.as_view(), name='sign-out'),
     path('change-pw/', ChangePassword.as_view(), name='change-pw'),
 
-    path('games/', Games.post(), name='create'),
-    path('games/', Games.get(), name='index')
+    path('games/', GameIndex.as_view(), name='index-games'),
+    path('games/', GameCreate.as_view(), name='create-games')
 ]

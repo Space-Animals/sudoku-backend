@@ -4,6 +4,11 @@ from rest_framework import serializers
 from .models.user import User
 from .models.game import Game
 
+class GameSerializer(serializers.ModelSerializer):
+    class Meta:
+      model = Game
+      fields = '__all__'
+
 class UserSerializer(serializers.ModelSerializer):
     games = GameSerializer(many=True)
     class Meta:
@@ -22,8 +27,3 @@ class ChangePasswordSerializer(serializers.Serializer):
     model = User
     old = serializers.CharField(required=True)
     new = serializers.CharField(required=True)
-
-class GameSerializer(serializers.Serializer):
-    class Meta:
-      model = Game
-      fields = '__all__'

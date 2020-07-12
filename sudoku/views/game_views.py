@@ -7,10 +7,11 @@ from django.shortcuts import get_object_or_404
 # from django.contrib.auth import get_user, authenticate, login, logout
 
 from ..serializers import GameSerializer
+from ..models.game import Game
 # from ..models.user import User
 
 # Routing-ish Stuff
-class Games(APIView):
+class GameIndex(APIView):
   # Get Request
   def get(self, request):
     """Index Request"""
@@ -19,7 +20,8 @@ class Games(APIView):
     data = GameSerializer(games, many=True).data
     return Response(data)
 
-  # Post Request
+# Post Request
+class GameCreate(APIView):
   def post(self, request):
     """Post Request"""
     print(request.data)
