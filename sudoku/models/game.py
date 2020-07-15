@@ -1,14 +1,12 @@
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 from .user import User
 
 # Creating the 'skeleton' of the project
 class Game(models.Model):
-  def fill(arr):
-    for i in range(81):
-      arr.append(None)
 
   # Da Fields
-  cells = fill([])
+  cells = ArrayField(models.CharField(max_length=100, blank=True), default=list)
   over = models.BooleanField(default=False)
   time = models.CharField(max_length=100, default='')
   created_at = models.DateTimeField(auto_now_add=True)
