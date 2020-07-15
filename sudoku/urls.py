@@ -9,6 +9,6 @@ urlpatterns = [
     path('sign-out/', SignOut.as_view(), name='sign-out'),
     path('change-pw/', ChangePassword.as_view(), name='change-pw'),
 
-    path('games/', GameIndex.as_view(), name='index-games'),
-    path('games/', GameCreate.as_view(), name='create-games')
+    path('games/', GameIndex.as_view(), name='games'),
+    path('games/', GameCreate.as_view(), name='games')
 ]
