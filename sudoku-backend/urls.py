@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# Routes to the Dashboard of the website.
+# On the Dashboard it will load the 'included' url provided in the path
+# Go to View file to check out each separate paths
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('sudoku.urls'))

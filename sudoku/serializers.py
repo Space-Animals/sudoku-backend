@@ -4,12 +4,14 @@ from rest_framework import serializers
 from .models.user import User
 from .models.game import Game
 
+# Game Serializer that converts the model data to render JSON/XML/etc
 class GameSerializer(serializers.ModelSerializer):
   class Meta:
     model = Game
     fields= '__all__'
     # fields = ('id', 'cells', 'over', 'time', 'owner', 'created_at', 'updated_at')
 
+# User Serializer for the User model data
 class UserSerializer(serializers.ModelSerializer):
     games = GameSerializer(many=True, read_only=True)
     class Meta:
