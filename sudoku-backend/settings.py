@@ -34,7 +34,8 @@ else:
   DEBUG = False
   CORS_ORIGIN_WHITELIST = [
     os.getenv('CLIENT_ORIGIN'),
-    'https://space-animals-sudoku.herokuapp.com'
+    'https://space-animals-sudoku.herokuapp.com',
+    'https://space-animals.github.io/sudoku-frontend'
   ]
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
